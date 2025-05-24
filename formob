@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>atos líbidinosos?</title>
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .button-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+        }
+
+        button {
+            position: relative;
+            padding: 15px 30px;
+            cursor: pointer;
+            background-color: #424242;
+            color: rgb(255, 255, 255);
+            border: none;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            width: 80%;
+            max-width: 300px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        button:hover, button:active {
+            background-color: #ff0000;
+            transform: scale(1.05);
+        }
+
+        #sim-button {
+            background-color: #ff0000;
+        }
+
+        #sim-button:hover, #sim-button:active {
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.2rem;
+                padding: 0 1rem;
+            }
+
+            button {
+                padding: 12px 24px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>atos líbidinosos?</h1>
+    <div class="button-container">
+        <button id="nao-button">não</button>
+        <button id="sim-button">sim</button>
+    </div>
+
+    <script>
+        const naoButton = document.getElementById('nao-button');
+        const simButton = document.getElementById('sim-button');
+        
+        function moveButton(event) {
+            event.preventDefault(); 
+            const button = event.target;
+            const maxX = window.innerWidth - button.offsetWidth;
+            const maxY = window.innerHeight - button.offsetHeight;
+            
+            const randomX = Math.floor(Math.random() * maxX);
+            const randomY = Math.floor(Math.random() * maxY);
+            
+            button.style.position = 'absolute';
+            button.style.left = randomX + 'px';
+            button.style.top = randomY + 'px';
+        }
+        
+        
+        naoButton.addEventListener('mouseover', moveButton);
+        naoButton.addEventListener('touchstart', moveButton);
+        naoButton.addEventListener('mousedown', moveButton);
+        naoButton.addEventListener('click', (e) => {
+            e.preventDefault(); 
+            moveButton(e);
+            return false;
+        });
+
+        simButton.addEventListener('click', () => {
+            alert('te vejo na cama kkkkkkkkk');
+        });
+    </script>
+</body>
+</html>
